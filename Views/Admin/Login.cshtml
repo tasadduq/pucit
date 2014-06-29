@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "~/Views/Shared/ABeforeLogin.cshtml";
+    }
+
+@model MySliderProject.Models.Admin
+
+    @section title
+    {
+        <title>Easy Course Registration System | Login</title>
+    }
+
+
+
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+	<div class="contact">
+       
+		<div class="contact_main">
+			   
+				<div class="col-md-8">
+				  <div class="contact-form">
+				  	<h2>Login</h2>
+						@*<form method="post" action="../Home/Index">*@
+                             @using (Html.BeginForm("VerifyLogin","Admin",FormMethod.Post)){
+                                @Html.ValidationSummary(true)
+
+                                 <div class="Editor-label">
+                                  <h4>   @Html.LabelFor(Student=>Student.Name)</h4>
+                                     
+
+                                 </div>
+                                 <div class="Editor-Field">
+                                    @Html.EditorFor(Student=>Student.Name)
+                                    
+                                    @Html.ValidationMessageFor(u=>u.Name)
+                                 </div>
+                                 <div class="Editor-label">
+                                  <h4>   @Html.LabelFor(Student=>Student.Password)</h4>
+                                     
+
+                                 </div>
+                                 <div class="Editor-Field">
+                                    @Html.EditorFor(Student=>Student.Password)
+                                    
+                                    @Html.ValidationMessageFor(u=>u.Password)
+                                 </div>
+                                 <span><input type="submit" value="Login"></span>
+                             }
+                   
+				    </div>
+  			</div>		
+  			<div class="clearfix"></div>		
+		</div>
+	</div>
+</div>
+</div>
+
+ <script>
+    @Scripts.Render("~/bundles/jqueryval")
+ </script>

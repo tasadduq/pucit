@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "AllStudentsInCourse";
+    Layout = "~/Views/Shared/UALogin.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    @section title
+    {
+        <title>Easy Course Registration System | AllStudentsInCourse</title>
+    }
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('#checking').hide();
+            $('#RegNo').blur(function () {
+                console.log("inside click");
+                var reg = $('#reg').val();
+                $('#checking').show();
+                $.getJSON("/Student/CheckReg?registration=" + reg, function (data) {
+                    console.log("data" + data);
+                    $('#checking').hide();
+                    if (data) {
+                        $('#res').text("Student Exists  " + data.Name);
+                        $('#RollNo').val(data.RollNo);
+                        $('#Name').val(data.Name);
+                        $('#Degree').val(data.Degree);
+                    }
+                    else {
+                        $('#res').text("Student Not Exists");
+                    }
+
+                });
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+	<div class="contact">
+       
+		<div class="contact_main">
+			   
+				<div class="col-md-8">
+				  <div class="contact-form">
+				  	<h2><b>Students Enrolled in A Course</b></h2>
+						<form method="post" action="../Home/AllStudentsInCourse">
+                            <div id="checking"><p style="font-size:18px"><b>checking...</b></p></div>
+                            <div id="res"></div>
+                            <input type="text" id="RegNo" PlaceHolder="Course ID" required="required" onfocus="this.value = '';" >
+                            
+
+                            @*<input type="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+							<textarea onfocus="if(this.value == 'Your Message here....') this.value='';" onblur="if(this.value == '') this.value='Your Message here....;" >Your Message here....</textarea>*@
+							<span><input type="submit" value="Result"></span>
+						</form>
+				    </div>
+  			</div>		
+  			<div class="clearfix"></div>		
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "GetTeachers";
+    Layout = "~/Views/Shared/UALogin.cshtml";
+}
+@model IEnumerable<MySliderProject.Models.Teacher>
+
+    @section title
+    {
+        <title>Easy Course Registration System | Courses</title>
+    }
+ 
+<div class="main_btm1"><!-- start main_btm -->
+    <div class="container">
+	    <div class="technology">
+		    <div class="technology_main">
+                @foreach(var c in Model){
+			    <div class="technology_list col-md-6">
+                    <h2>@c.Name</h2>
+                     <h4>Teacher ID : @c.TId</h4>
+                     <h4>Teacher ID : @c.CId</h4>
+				    <h4>Designation : @c.Designation</h4>
+                    <h4>Qualification : @c.Qualification</h4>
+                    <h4>Phone : @c.Phone</h4>
+                    				    
+				    <div class="clearfix"></div>
+
+			    </div>
+                }
+			  
+	    </div>
+    </div>
+</div>
+</div>

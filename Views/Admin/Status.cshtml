@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Status";
+    Layout = "~/Views/Shared/AALogin.cshtml";
+}
+
+@model MySliderProject.Models.Student
+
+@{
+    ViewBag.Title = "ViewCourses";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section title
+{
+    <title>Easy Course Registration System | Courses</title>
+}
+
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+	<div class="contact">
+		<div class="contact_main">			   
+				<div class="col-md-8">
+				  <div class="contact-form">
+				  	<center><h2 text-align="center"><br>Status <br><br><br></h2></center>
+                      					
+                             @using (Html.BeginForm("ShowStatus","Admin",FormMethod.Post))
+                             {
+                                @Html.ValidationSummary(true)
+
+                                 <div class="Editor-label">
+                                    <h4>@Html.LabelFor(Student=>Student.RegId)</h4> 
+                                 </div>
+                                 <div class="Editor-Field">
+                                    @Html.EditorFor(Student=>Student.RegId)
+                                    @Html.ValidationMessageFor(u=>u.RegId)
+                                 </div>                                 
+                                 <span><input type="submit" value="Show"></span>
+                             }
+                    
+				    </div>
+  			</div>		
+  			<div class="clearfix"></div>		
+		</div>
+	</div>
+</div>
+</div>
+ <script>
+    @Scripts.Render("~/bundles/jqueryval")
+ </script>
+

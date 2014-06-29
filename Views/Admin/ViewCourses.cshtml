@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "ViewCourses";
+    Layout = "~/Views/Shared/AALogin.cshtml";
+}
+@model List<MySliderProject.Models.Course>
+
+    @section title
+    {
+        <title>Easy Course Registration System | Courses</title>
+    }
+
+<div class="main_btm1"><!-- start main_btm -->
+    <div class="container">
+	    <div class="technology">
+		    <div class="technology_main">
+                @foreach(var c in Model)
+                {
+			    <div class="technology_list col-md-6">
+                    <h4>Course ID : @c.CId</h4>
+                    <h4>Course Name : @c.Name</h4>
+				    <div class="tech_para">
+                        <h4>Course Description:-</h4>
+                        <p class="para">@c.Description</p>					   
+				    </div>
+				    <div class="clearfix"></div>
+				    <div class="read_btn">
+                        <a href="~/Admin/GetTeachers/@c.CId" class="btn">Teachers</a>
+				    </div>	
+			    </div>
+                }
+	    </div>
+    </div>
+</div>
+
+</div>

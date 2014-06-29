@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "CallEnroll";
+    Layout = "~/Views/Shared/UALogin.cshtml";
+}
+
+
+
+    @section title
+    {
+        <title>Easy Course Registration System | Login</title>
+    }
+
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+	<div class="contact">
+       
+		<div class="contact_main">
+			   
+				<div class="col-md-8">
+				  <div class="contact-form">
+                      
+				  	<h2>Enroll</h2>
+						
+                             @using (Html.BeginForm("NowEnroll","Home",FormMethod.Post)){
+                                @Html.ValidationSummary(true)
+
+                                 <div class="Editor-label">
+                                  <h4>   @Html.Label("CourseID")</h4>
+                                 </div>
+                                 <div class="Editor-Field">
+                                    @Html.Editor("CourseID")
+                                    
+                                    @*@Html.ValidationMessageFor(u=>u.UName)*@
+                                 </div>
+                                 <div class="Editor-label">
+                                  <h4>   @Html.Label("TeacherId")</h4>
+                                     
+                                 </div>
+                                 <div class="Editor-Field">
+                                    @Html.Editor("TeacherId")
+                                    
+                                    @*@Html.ValidationMessageFor(u=>u.Password)*@
+                                 </div>
+                                 <span><input type="submit" value="EnrollMe"></span>
+                             }
+                    
+				    </div>
+                 
+  			</div>		
+  			<div class="clearfix"></div>		
+		</div>
+	</div>
+</div>
+</div>

@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "RStudentsInCourse";
+    Layout = "~/Views/Shared/UALogin.cshtml";
+}
+
+@model IEnumerable<MySliderProject.Models.Student>
+ @section title
+    {
+        <title>ECR System | Students Enrolled</title>
+    }
+
+<div class="main_btm1"><!-- start main_btm -->
+    <div class="container">
+	    <div class="technology">
+		    <div class="technology_main">
+                @foreach(var c in Model){
+			    <div class="technology_list col-md-6">
+                    <h2>@c.Name</h2>
+                     <h4>Reg. ID : @c.RegId</h4>
+                     <h4>RollNo : @c.RollNo</h4>
+                     <h4>Batch : @c.Batch</h4>
+                              				    
+				    <div class="clearfix"></div>
+                   
+
+			    </div>
+                }
+			  
+	    </div>
+    </div>
+</div>
+</div>

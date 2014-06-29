@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "ShowStatus";
+    Layout = "~/Views/Shared/UALogin.cshtml";
+}
+
+@model List<MySliderProject.Models.Student>
+
+    @section title
+    {
+        <title>Easy Course Registration System | StudentStatus</title>
+    }
+    
+
+
+
+<div class="main_btm1"><!-- start main_btm -->
+    <div class="container">
+	    <div class="technology">
+		    <div class="technology_main">
+               <table   border="5">
+
+                   <tr> 
+                       <td align="center"><font color="blue" size="5">RegID</font></td>
+                       <td  align="center"><font color="blue" size="5">Name</font></td>
+                       <td  align="center"><font color="blue" size="5">Batch</font></td>
+                       <td align="center"><font color="blue" size="5">UserName</font></td>
+                       <td align="center"><font color="blue" size="5">Password</font></td>                       
+                       <td align="center"><font color="blue" size="5">SignUpStatus</font></td>
+                       
+
+                   </tr>
+                   @foreach (var stdu in Model){
+                        
+                       <tr> 
+                       <td align="center" ><font color="red" size="5">@stdu.RegId</font></td>
+                       <td  align="center"><font color="red" size="5">@stdu.Name</font></td>
+                       <td  align="center"><font color="red" size="5">@stdu.Batch</font></td>
+                       <td  align="center"><font color="red" size="5">@stdu.UName</font></td>
+                       <td  align="center"><font color="red" size="5">@stdu.Password</font></td>                       
+                       <td  align="center"><font color="red" size="5">@stdu.Status</font></td>
+                     
+
+                   </tr>
+
+                        
+                   }
+
+               </table>
+			 
+               
+	    </div>
+    </div>
+</div>
+    </div>

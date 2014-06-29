@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/BeforeLogin.cshtml";
+}
+
+@model MySliderProject.Models.Student
+
+    @section title
+    {
+        <title>Easy Course Registration System | Register</title>
+    }
+
+
+  
+    <script>
+        $(document).ready(function () {
+
+            $('#checking').hide();
+           
+                $('#RegId').blur(function () {
+                //console.log("inside click");
+               // $('#checking').show();
+                var reg = $('#RegId').val();
+                $('#checking').show();
+                $.getJSON("/Home/CheckReg?RegId="+reg, function (data) {
+                  
+                    console.log("data" + data);
+
+                    $('#checking').hide();
+                    if (data) {
+                       $('#res').text("Student Exists  " );//+ data.Name);
+                       $('#RollNo').val(data.RollNo);
+                       $('#Name').val(data.Name);
+                       $('#Batch').val(data.Batch);
+                       $('#UName').val(data.UName);
+                       $('#Password').val(data.Password);
+                       $('#CPassword').val(data.Password);
+
+                    }
+                    else
+                    {
+                        $('#res').text("Student Not Exists");
+                    }
+
+                });
+            });
+
+        });
+
+    </script>
+    
+
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+	<div class="contact">
+       
+		<div class="contact_main">
+			   
+				<div class="col-md-8">
+				  <div class="contact-form">
+				  	<h2><b>Register Yourself</b></h2>
+						@*<form method="post" action="../Home/Index">*@
+                         @using (Html.BeginForm("SaveStudent","Home",FormMethod.Post) )   {
+                             
+                            
+                                        @Html.ValidationSummary(true)
+                                    
+                                    <div class="editor-label">
+                                    <h4>@Html.LabelFor((User=>User.RegId))</h4>
+                                    </div>
+                                    <div class="editor-feild">
+                                        @Html.EditorFor((User=>User.RegId))
+                                        @Html.ValidationMessageFor(u=>u.RegId)
+                                        
+                                    </div>    
+                                     <div  id="checking"><p style="font-size:18px"><b>checking...</b></p></div>
+                                    <h2><div id="res"></div></h2>
+
+                                    <div class="editor-label">
+                                     <h4>   @Html.LabelFor((User=>User.RollNo))</h4>
+                                    </div>
+                                    <div class="editor-feild">
+                                        @Html.EditorFor((User=>User.RollNo))
+                                        @Html.ValidationMessageFor(u=>u.RollNo)
+                                    </div>    
+                                    <div class="editor-label">
+                                    <h4>    @Html.LabelFor((User=>User.Name))</h4>
+                                    </div>
+                                    <div class="editor-feild">
+                                        @Html.EditorFor((User=>User.Name))
+                                        @Html.ValidationMessageFor(u=>u.Name)
+                                    </div>    
+                                 
+                                    <div class="editor-label">
+                                        <h4>@Html.LabelFor((User=>User.Batch))</h4>
+                                    </div>
+                                    <div class="editor-feild">
+                                        @Html.EditorFor((User=>User.Batch))
+                                        @Html.ValidationMessageFor(u=>u.Batch)
+                                    </div>    
+                                 
+                                    <div class="editor-label">
+                                        <h4>@Html.LabelFor((User=>User.UName))</h4>
+                                    </div>
+                                    <div class="editor-feild">
+                                        @Html.EditorFor((User=>User.UName))
+                                        @Html.ValidationMessageFor(u=>u.UName)
+                                    </div>    
+                                        <div class="editor-label">
+                                        <h4>@Html.LabelFor((User=>User.Password))</h4>
+                                    </div>
+                                    <div class="editor-feild">
+                                        @Html.EditorFor((User=>User.Password))
+                                        @Html.ValidationMessageFor(u=>u.Password)
+                                    </div>    
+                                   
+                                 
+        
+                                    <div class="editor-label">
+                                        <h4>@Html.LabelFor((User=>User.CPassword))</h4>
+                                    </div>
+                                    <div class="editor-feild">
+                                        @Html.EditorFor((User=>User.CPassword))
+                                        @Html.ValidationMessageFor(u=>u.CPassword)
+                                    </div>    
+        
+        
+                                      <input type="submit" value="Register" />
+
+                                    }
+				    </div>
+  			</div>		
+  			<div class="clearfix"></div>		
+		</div>
+	</div>
+</div>
+</div>
+
+ <script>
+    @Scripts.Render("~/bundles/jqueryval")
+ </script>

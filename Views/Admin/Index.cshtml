@@ -1,0 +1,495 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/ABeforeLogin.cshtml";
+}
+
+
+
+    @section title
+    {
+        <title>Easy Course Registration System | Home</title>
+    }
+
+<!-- start plugins -->
+<!-- start plugins -->
+
+
+@*-----------------------------------<script type="text/javascript" src="js/jquery.min.js"></script>*@
+    @Scripts.Render("~/Scripts/jquery.min.js")
+@*<script type="text/javascript" src="js/bootstrap.js"></script>*@
+@Scripts.Render("~/Scripts/bootstrap.js")
+@*<script type="text/javascript" src="js/bootstrap.min.js"></script>*@
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
+<!--start slider -->
+    @*<link rel="stylesheet" href="css/fwslider.css" media="all">*@
+     @Styles.Render("~/Content/fwslider.css")
+    @*<script src="js/jquery-ui.min.js"></script>*@
+    @Scripts.Render("~/Scripts/jquery-ui.min.js")
+    @*<script src="js/css3-mediaqueries.js"></script>*@
+    @Scripts.Render("~/Scripts/css3-mediaqueries.js")
+    @*<script src="js/fwslider.js"></script>*@
+    @Scripts.Render("~/Scripts/fwslider.js")
+<!--end slider -->
+
+<!-- must have -->
+<link href="~/Content/allinone_carousel.css" rel="stylesheet" type="text/css">
+<script src="~/Scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+<script src="~/Scripts/allinone_carousel.js" type="text/javascript"></script>
+<!--[if IE]><script src="js/excanvas.compiled.js" type="text/javascript"></script><![endif]-->
+<!-- must have -->
+	<script>
+	    jQuery(function () {
+
+	        jQuery('#allinone_carousel_charming').allinone_carousel({
+	            skin: 'charming',
+	            width: 990,
+	            height: 454,
+	            responsive: true,
+	            autoPlay: 3,
+	            resizeImages: true,
+	            autoHideBottomNav: false,
+	            showElementTitle: false,
+	            verticalAdjustment: 50,
+	            showPreviewThumbs: false,
+	            //easing:'easeOutBounce',
+	            numberOfVisibleItems: 5,
+	            nextPrevMarginTop: 23,
+	            playMovieMarginTop: 0,
+	            bottomNavMarginBottom: -10
+	        });
+	    });
+	</script>
+<!-- Owl Carousel Assets -->
+<link href="../Content/owl.carousel.css" rel="stylesheet">
+<script src="../Scripts/owl.carousel.js"></script>
+		<script>
+		    $(document).ready(function () {
+
+		        $("#owl-demo").owlCarousel({
+		            items: 4,
+		            lazyLoad: true,
+		            autoPlay: true,
+		            navigation: true,
+		            navigationText: ["", ""],
+		            rewindNav: false,
+		            scrollPerPage: false,
+		            pagination: false,
+		            paginationNumbers: false,
+		        });
+
+		    });
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!-- start circle -->
+<script>
+    (function ($) {
+        $.fn.percentPie = function (options) {
+
+            var settings = $.extend({
+                width: 100,
+                trackColor: "EEEEEE",
+                barColor: "E2534B",
+                barWeight: 30,
+                startPercent: 0,
+                endPercent: 1,
+                fps: 60
+            }, options);
+
+            this.css({
+                width: settings.width,
+                height: settings.width
+            });
+
+            var that = this,
+                hoverPolice = false,
+                canvasWidth = settings.width,
+                canvasHeight = canvasWidth,
+                id = $('canvas').length,
+                canvasElement = $('<canvas id="' + id + '" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+                canvas = canvasElement.get(0).getContext("2d"),
+                centerX = canvasWidth / 2,
+                centerY = canvasHeight / 2,
+                radius = settings.width / 2 - settings.barWeight / 2;
+            counterClockwise = false,
+			fps = 1000 / settings.fps,
+			update = .01;
+            this.angle = settings.startPercent;
+
+            this.drawArc = function (startAngle, percentFilled, color) {
+                var drawingArc = true;
+                canvas.beginPath();
+                canvas.arc(centerX, centerY, radius, (Math.PI / 180) * (startAngle * 360 - 90), (Math.PI / 180) * (percentFilled * 360 - 90), counterClockwise);
+                canvas.strokeStyle = color;
+                canvas.lineWidth = settings.barWeight;
+                canvas.stroke();
+                drawingArc = false;
+            }
+
+            this.fillChart = function (stop) {
+                var loop = setInterval(function () {
+                    hoverPolice = true;
+                    canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+                    that.drawArc(0, 360, settings.trackColor);
+                    that.angle += update;
+                    that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+                    if (that.angle > stop) {
+                        clearInterval(loop);
+                        hoverPolice = false;
+                    }
+                }, fps);
+            }
+
+            this.mouseover(function () {
+                if (hoverPolice == false) {
+                    that.angle = settings.startPercent;
+                    that.fillChart(settings.endPercent);
+                }
+            });
+
+            this.fillChart(settings.endPercent);
+            this.append(canvasElement);
+            return this;
+        }
+    }(jQuery));
+
+    $(document).ready(function () {
+
+        $('.google').percentPie({
+            width: 100,
+            trackColor: "E2534B",
+            barColor: "76C7C0",
+            barWeight: 20,
+            endPercent: .9,
+            fps: 60
+        });
+
+        $('.moz').percentPie({
+            width: 100,
+            trackColor: "E2534B",
+            barColor: "76C7C0",
+            barWeight: 20,
+            endPercent: .75,
+            fps: 60
+        });
+
+        $('.safari').percentPie({
+            width: 100,
+            trackColor: "E2534B",
+            barColor: "#76C7C0",
+            barWeight: 20,
+            endPercent: .5,
+            fps: 60
+        });
+
+    });
+</script>
+        
+    <div id="fwslider"><!-- start slider -->
+        <div class="slider_container">
+            <div class="slide"> 
+                <!-- Slide image -->
+                    <img src="~/images/pucit_view.jpg">
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h4 class="title">Feel To Be A PUCITIAN!</h4>
+                        <!-- /Text title -->
+                        <!-- Text description -->
+                        <p class="description">PeaceFull Study Environment</p>
+                        <!-- /Text description -->
+                    </div>
+                </div>
+                 <!-- /Texts container -->
+            </div>
+            
+            <!-- /Duplicate to create more slides -->
+            <div class="slide"> 
+                <!-- Slide image -->
+                    <img src="~/images/pucit_slider3.jpg">
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h4 class="title">Feel To Be A PUCITIAN!</h4>
+                        <!-- /Text title -->
+                        <!-- Text description -->
+                        <p class="description">Producing Good Quality Graduates Institute</p>
+                        <!-- /Text description -->
+                    </div>
+                </div>
+                 <!-- /Texts container -->
+            </div>
+            
+              <!-- /Duplicate to create more slides -->
+            <div class="slide"> 
+                <!-- Slide image -->
+                    <img src="~/images/pucit_slider4.jpg">
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h4 class="title">Feel To Be A PUCITIAN!</h4>
+                        <!-- /Text title -->
+                        <!-- Text description -->
+                        <p class="description">Producing Good Quality Graduates Institute</p>
+                        <!-- /Text description -->
+                    </div>
+                </div>
+                 <!-- /Texts container -->
+            </div>
+            
+            <!-- /Duplicate to create more slides -->
+            <div class="slide"> 
+                <!-- Slide image -->
+                    <img src="~/images/pucit_competition1.jpg">
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h4 class="title">A Healthy Competition !</h4>
+                        <!-- /Text title -->
+                        <!-- Text description -->
+                        <p class="description">Producing Good Quality Graduates Institute</p>
+                        <!-- /Text description -->
+                    </div>
+                </div>
+                 <!-- /Texts container -->
+            </div>
+
+            
+            <!-- /Duplicate to create more slides -->
+            <div class="slide"> 
+                <!-- Slide image -->
+                    <img src="~/images/pucit_competition.jpg">
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h4 class="title">A Healthy Competition !</h4>
+                        <!-- /Text title -->
+                        <!-- Text description -->
+                        <p class="description">Producing Good Quality Graduates Institute</p>
+                        <!-- /Text description -->
+                    </div>
+                </div>
+                 <!-- /Texts container -->
+            </div>
+
+            <!-- /Duplicate to create more slides -->
+            
+            <div class="slide">
+                <img src="~/images/pucit_lab2.png">
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h4 class="title">Speed Programming Competitions</h4>
+                        <p class="description">Competitions develop your problem Solving Skills.</p>
+                    </div>
+                </div>
+            </div>
+            <!--/slide -->
+        </div>
+        <div class="timers"></div>
+        <div class="slidePrev"><span></span></div>
+        <div class="slideNext"><span></span></div>
+    </div><!--/slider -->
+<div class="main_bg">
+    <!-- start main -->
+
+
+<div class="container">
+	<div class="main_grid">		
+		<div class="top_grid"><!-- start top_grid -->
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Reponsive Ad -->
+<ins class="adsbygoogle reponsive-ad"
+     style="display:inline-block"
+     data-ad-client="ca-pub-1845532317325027"
+     data-ad-slot="3780060900"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+				<div class="col-md-10 span1_of_1">
+						<h3>some of our top services</h3>
+						<p>PUCIT Always Produces good quality graduates that are competent enough to compete the competitors since the 1980s</p>
+				</div>
+				
+		</div>
+		<div class="span_of_4"><!-- start span_of_4 -->
+			<div class="col-md-3 span1_of_4">
+				<div class="span4_of_list">
+					<span class="active"><i class="fa fa-thumbs-o-up"></i></span>
+					<h3>Education</h3>
+					<p>Best Quality Education is imparted by our PHD holder Professors.Our Graduates prove their skills in Professional Life</p>
+					
+				</div>
+			</div>
+			<div class="col-md-3 span1_of_4">
+				<div class="span4_of_list">
+					<span><i class="fa fa-lock"></i></span>
+					<h3>Rules and Regulations</h3>
+					<p>Abide by the Rules and Regulations is an essence of an Institute's progress.So no compromise on Rules and Regulations. </p>
+					
+				</div>	
+			</div>
+			<div class="col-md-3 span1_of_4">
+				<div class="span4_of_list">
+					<span><i class="fa fa-flag"></i></span>
+					<h3>Our Reputation</h3>
+					<p>Among the Institutes of Computer Science Fields ,we are among top 5 Institutes in Pakistan.</p>
+				
+				</div>
+			</div>
+			<div class="col-md-3 span1_of_4">
+				<div class="span4_of_list">
+					<span><i class="fa fa-flask"></i></span>
+					<h3>Environment</h3>
+					<p>We Provide Peacefull Environment to our valuable Students.Politics free environment</p>
+										
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div><!-- end span_of_4 -->
+	</div>
+</div>
+</div>
+
+<div class="main1_bg"><!-- start main1 -->
+<div class="container">
+	<div class="main slider_text texxt-center">
+		<h4>Why PUCIT</h4>
+		<p>Reality is not hidden.See the Love and Care for PUCITIANS ! </p>
+</div>
+</div>
+<!-- start banner -->
+<div id="bannerBg">
+<div id="containingDiv">
+            <div id="allinone_carousel_charming">
+            	<div class="myloader"></div>
+                <!-- CONTENT -->
+                <ul class="allinone_carousel_list">
+               		
+                    <li><img src="~/images/pucit_night.jpg" alt="" class="img-responsive"/></li>
+                    <li><img src="~/images/pucit_friends.jpg" alt="" class="img-responsive"/></li>
+                    <li><img src="~/images/pucit_talent.jpg" alt="" class="img-responsive"/></li>
+                    <li><img src="~/images/pucit_group.jpg" alt="" class="img-responsive"/></li>
+                    <li><img src="~/images/pucit_poetry.jpg" alt="" class="img-responsive"/></li>
+                    <li><img src="~/images/pucit_competitions.jpg" alt="" class="img-responsive"/></li>
+                    <li><img src="~/images/pucit_life.jpg" alt="" class="img-responsive"/></li>
+                    <li><img src="~/images/pucit_farewell.jpg" alt="" class="img-responsive"/></li>
+                    <li><img src="~/images/pucit_sports.jpg" alt="" class="img-responsive"/></li>
+                    <li><img src="~/images/pucit_cricket.jpg" alt="" class="img-responsive"/></li>
+                    <li><img src="~/images/pucit_courtsy.jpg" alt="" class="img-responsive"/></li>
+                    
+                    
+                      
+                </ul>    
+          </div>
+</div>
+</div>
+ <!-- end banner -->
+</div>
+<div class="main_btm"><!-- start main_btm -->
+<div class="container">
+	<div class="main span_of_3">
+		<div class="col-md-3 span1_of_3">
+			<h4>why choose us?</h4>
+			<div class="clients">
+				<p>PUCIT Always Produces good quality graduates that are competent enough to compete the competitors. </p>
+			</div>
+            
+		</div>	
+		<div class="col-md-6 span1_of_3">
+			<h5>There are many institutes But PUCIT is best of them .See the ratio of University degree Period distribution</h5>
+				<!-- start circle -->
+				<ul class="list-unstyled circle_list">
+					<li>
+						<div class="google chart">
+						  <div class="tag">90%</div>
+						</div>	
+						<h4 class="style">Study Related Activities</h4>					
+					</li>
+                    <li>
+						<div class="safari chart">
+						  <div class="tag">50%</div>
+						</div>			
+						<h4 class="style">Programming Competitions</h4>			
+					</li>
+					<li>
+						<div class="moz chart">
+						  <div class="tag">40%</div>
+						</div>			
+						<h4 class="style">ExtraCurricular Activities</h4>			
+					</li>
+					
+				</ul>
+				<!-- end circle -->
+		</div>	
+		<div class="col-md-3 span1_of_3">
+			<h4>what Industry say ?</h4>
+			<div class="clients">
+				<p>PUCIT Always Produces good quality graduates that are competent enough to compete the competitors. </p>
+			</div>
+			
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="cau_hide">
+	<div class="cursual"><!--  start cursual  -->
+		<h4>Our Successfull Professionals<span class="line"></span></h4>
+	</div>
+	<div id="owl-demo" class="owl-carousel"><!----start-img-cursual---->
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" src="~/images/pucit_scholars1.jpg" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" src="~/images/pucit_scholars2.jpg" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" src="~/images/pucit_scholars3.jpg" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" src="~/images/pucit_scholars4.jpg" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" src="~/images/pucit_scholars5.jpg" alt="Lazy Owl Image">
+			</div>
+		</div>
+        <div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" src="~/images/pucit_scholars1.jpg" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" src="~/images/pucit_scholars2.jpg" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" src="~/images/pucit_scholars5.jpg" alt="Lazy Owl Image">
+			</div>
+		</div>
+
+	</div><!----//End-img-cursual---->
+	</div>
+</div>
+</div>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "StudentsInCourse";
+    Layout = "~/Views/Shared/AALogin.cshtml";
+}
+
+    @section title
+    {
+        <title>Easy Course Registration System | Login</title>
+    }
+
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+	<div class="contact">
+       
+		<div class="contact_main">
+			   
+				<div class="col-md-8">
+				  <div class="contact-form">
+                      
+				  	<h2>Students Enrolled in A Course</h2>
+						
+                             @using (Html.BeginForm("RStudentsInCourse","Admin",FormMethod.Post)){
+                                @Html.ValidationSummary(true)
+
+                                 <div class="Editor-label">
+                                  <h4>   @Html.Label("CourseID")</h4>
+                                 </div>
+                                 <div class="Editor-Field">
+                                    @Html.Editor("CourseID")
+                                    
+                                 </div>
+                               
+                                 <span><input type="submit" value="EnrolledStduents"></span>
+                             }
+                    
+				    </div>
+                 
+  			</div>		
+  			<div class="clearfix"></div>		
+		</div>
+	</div>
+</div>
+</div>
+
+ <script>
+    @Scripts.Render("~/bundles/jqueryval")
+ </script>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+
+        @RenderSection("title",required:false)
+        <!-- Bootstrap -->
+
+        @Styles.Render("~/Content/bootstrap.css")
+        @Styles.Render("~/Content/bootstrap.min.css")
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <link href="~/Content/blue.css" rel="stylesheet" type="text/css" media="all" />
+        <!----font-Awesome----->
+   	        <link rel="stylesheet" href="~/fonts/css/font-awesome.min.css">
+            <script src="~/Scripts/menu.js" type="text/javascript"></script>       
+        <!----font-Awesome----->
+        <!-- start plugins -->
+
+            @RenderSection("myscript",required:false)
+
+
+            @Scripts.Render("~/Scripts/jquery.min.js")
+            @Scripts.Render("~/Scripts/bootstrap.js")
+            @Scripts.Render("~/Scripts/bootstrap.min.js")
+        <!--start slider -->
+             @Styles.Render("~/Content/fwslider.css") 
+            @Scripts.Render("~/Scripts/jquery-ui.min.js")
+            @Scripts.Render("~/Scripts/css3-mediaqueries.js")
+            @Scripts.Render("~/Scripts/fwslider.js")
+            <!-- Bootstrap -->
+        <!--end slider -->
+
+
+</head>
+<body>
+
+
+	  @RenderSection("menubuttons",required:false)                                   			        
+
+          <marquee bgcolor="black"  title="WelcomeToECR"
+                ONMOUSEOVER="this.stop();"
+                ONMOUSEOUT="this.start();">
+             <font color="#00FF00" ><h3>Welcome to Easy Course Registration System </h3></font>
+          </marquee>
+
+    @RenderBody()
+    @RenderSection("featured",required:false)
+
+    <!-- start footer -->
+<div class="footer_bg">
+<div class="container">
+	<div class="footer">
+		<div class="col-md-4 footer1_of_3">
+			<div class="f_logo">
+				<a href="#"><img src="~/images/pucit_logo.png" alt=""/></a>
+			</div>		
+			<p class="f_para">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1845532317325027";
+/* Free Cms Themes Block */
+google_ad_slot = "4182534904";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</p>
+
+			<p >Phone:&nbsp;<span>(00) 222 666 444</span></p>
+			<span class="">Email:&nbsp;<a href="http://www.pucit.edu.pk">www.pucit.edu.pk</a></span>
+		</div>
+		
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="footer1_bg"><!-- start footer1 -->
+<div class="container">
+	<div class="footer1">
+		<div class="copy pull-left">
+			<p class="link"><span>&#169; All rights reserved by&nbsp;<a href="bitf11a032@pucit.edu.pk"> bitf11a032@pucit.edu.pk</a></span></p>
+		</div>
+		
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+</body>
+</html>

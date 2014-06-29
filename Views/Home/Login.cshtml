@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/BeforeLogin.cshtml";
+    }
+
+@model MySliderProject.Models.Student
+
+    @section title
+    {
+        <title>Easy Course Registration System | Login</title>
+    }
+
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+	<div class="contact">
+       
+		<div class="contact_main">
+			   
+				<div class="col-md-8">
+				  <div class="contact-form">
+                      
+				  	<h2>Login</h2>
+						
+                             @using (Html.BeginForm("VerifyLogin","Home",FormMethod.Post)){
+                                @Html.ValidationSummary(true)
+
+                                 <div class="Editor-label">
+                                  <h4>   @Html.LabelFor(Student=>Student.UName)</h4>
+                                 </div>
+                                 <div class="Editor-Field">
+                                    @Html.EditorFor(Student => Student.UName)
+                                    
+                                    @Html.ValidationMessageFor(u=>u.UName)
+                                 </div>
+                                 <div class="Editor-label">
+                                  <h4>   @Html.LabelFor(Student=>Student.Password)</h4>
+                                     
+                                 </div>
+                                 <div class="Editor-Field">
+                                    @Html.EditorFor(Student => Student.Password)
+                                    
+                                    @Html.ValidationMessageFor(u=>u.Password)
+                                 </div>
+                                 <span><input type="submit" value="Login"></span>
+                             }
+                    
+				    </div>
+                 
+  			</div>		
+  			<div class="clearfix"></div>		
+		</div>
+	</div>
+</div>
+</div>
+
+ <script>
+    @Scripts.Render("~/bundles/jqueryval")
+ </script>
